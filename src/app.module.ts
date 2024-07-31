@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
+import { LoginModule } from './login/login.module';
 import { ConfigModule } from '@nestjs/config';
 import { getConfig } from './utils';
 
@@ -10,7 +11,7 @@ import { getConfig } from './utils';
     isGlobal: true,
     load: [getConfig],
     ignoreEnvFile: true,
-  }), UserModule],
+  }), UserModule, LoginModule],
   controllers: [AppController],
   providers: [AppService],
 })
